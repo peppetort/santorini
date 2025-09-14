@@ -1,144 +1,142 @@
-# Santorini
+# 🏛️ Santorini
 
-A light and fast implementation of Santorini board game by Cranio Creations written in Java.
+![Santorini](src/main/resources/img/santorini-logo.png)
 
-## Features
+A **lightweight and fast Java implementation** of the *Santorini* board game by Cranio Creations.  
+The project supports both **Command Line Interface (CLI)** and **Graphical User Interface (GUI)** (JavaFX) and can be played in distributed mode over sockets.
 
-### Socket
 
-The game was developed as a distributed application. So both the server and the client have been implemented using Socket.
+## ✨ Features
 
-### Complete rules
+### 🔌 Distributed Architecture
+- Server and client implemented using **Java Sockets**
+- Multiple concurrent game sessions supported
 
-The game can be played in 2 or 3, with or without the use of cards.
+### 📜 Complete Rules
+- Fully supports **2- and 3-player games**
+- Play **with or without god powers**
+- Implemented gods:
+  - Apollo
+  - Artemis
+  - Athena
+  - Atlas
+  - Demeter
+  - Hephaestus
+  - Minotaur
+  - Pan
+  - Prometheus
 
-Implemented gods:
+### 💻 CLI
+- Cross-platform **command-line interface**
+- Tested on:
+  - Linux (Bash)
+  - Windows (cmd, PowerShell, Windows Terminal)
+- Windows users: enable ANSI colors via registry (see below)
 
-- Apollo
-- Artemis
-- Athena
-- Atlas
-- Demeter
-- Hephaestus
-- Minotaur
-- Pan
-- Prometheus
+### 🖼️ GUI
+- User interface built with **JavaFX**
+- Dependencies already bundled in the deliverables
 
-### CLI
+### ⏪ Undo Functionality
+- During a turn, the player may **undo** to the initial state of the turn
+- If mandatory moves are completed, you have **5 seconds** to undo before the turn is passed automatically
 
-User interface developed via command line.
+## ⚙️ Requirements
 
-Support for:
+- **Java JRE 8**  
+  [Download JRE 8](https://www.oracle.com/java/technologies/javase-jre8-downloads.html)  
+  On Windows, ensure the `JAVA_HOME` and global `java` path are set correctly.
 
-- Bash
-- cmd
-- Window Power Shell
-
-### GUI
-
-User interface written in JavaFX
-
-### Additional functionality: Multiple Games
-
-The server supports multiple game sessions simultaneously
-
-### Additional functionality: UNDO
-
-At any moment of the turn, starting from the choice of the pawn, it is possible to return to the initial state.
-If all the mandatory moves have taken place, you have 5 seconds to apply the UNDO, otherwise the turn will be automatically passed.
-
-## Requirements
-
-### Main
-
-The requirements to run the program are:
-
-- Java JRE 8 
-
-(you can download the right version for your OS at this URL: https://www.oracle.com/java/technologies/javase-jre8-downloads.html)
-
-If your OS is Window, once downloaded java, remember to set the global java path
-
-### CLI
-
-If you run on Windows you'll need Windows terminal (you can download it on the Microsoft Store free)
-
-If you don't want to download the new terminal you have to open the **cmd** and insert:
+### CLI – Windows Setup
+If you use the legacy **cmd** terminal, enable ANSI colors:
 
 ```cmd
 REG ADD HKCU\CONSOLE /f /v VirtualTerminalLevel /t REG_DWORD /d 1
 ```
-and press enter to enable colors on your windows terminal
 
-## Start the game
+Alternatively, use **Windows Terminal** (recommended, available free from the Microsoft Store).
 
-### Server
 
-##### Linux / OSX / Window
+## 🚀 How to Start the Game
 
-Open a new terminal window and type:
+### 🖥️ Server
+
+On Linux / macOS / Windows:
 
 ```bash
 cd /path_to_Santorini_folder/deliverables
 java -jar Server.jar
 ```
 
-### Client
+---
 
-#### GUI
+### 🖼️ Client – GUI
 
-JavaFX dependencies are already included in the JAR.
+* Go to the `deliverables` folder
+* Double-click:
 
-##### Linux / OSX / Window
+  * **SantoriniGUI.jar** → connects to a local server (`localhost`)
+  * **SantoriniGUI\_remote.jar** → connects to a remote test server
 
-Go to *deliverables* folder located into this repo folder and double click on
 
-- *SantoriniGUI.jar* if you started the server on *localhost*
-- *SantoriniGUI_remote.jar* if you want to use a remote server created specifically for testing
+### 💻 Client – CLI
 
-#### CLI
-
-##### Linux / OSX / Window
-
-Open a new terminal window and type:
+On Linux / macOS / Windows:
 
 ```bash
 cd /path_to_Santorini_folder/deliverables
 ```
 
-If you started the server on *localhost* type:
+If server is on `localhost`:
 
 ```bash
 java -jar SantoriniCLI.jar
 ```
 
-If you want to use a remote server created specifically for testing type:
+If using a **remote test server**:
 
 ```bash
 java -jar SantoriniCLI_remote.jar
 ```
 
-## Coverage
 
-All the code was tested using *Junit*. 
+## 🧪 Testing & Coverage
 
-Test cases have been written to maximize the number of lines covered:
+Unit tests written with **JUnit**. Coverage summary:
 
+| **Package** | **Class Coverage** | **Line Coverage** |
+| ----------- | ------------------ | ----------------- |
+| CLI         | 0%                 | 0%                |
+| Client      | 40%                | 12%               |
+| Controller  | 100%               | 92%               |
+| Exceptions  | 50%                | 50%               |
+| GUI         | 0%                 | 0%                |
+| Messages    | 76%                | 51%               |
+| Model       | 100%               | 96%               |
+| Observer    | 100%               | 37%               |
+| Server      | 0%                 | 0%                |
+| View        | 0%                 | 0%                |
 
-**Package name** | **Class coverage** | **Lines Coverage**
------------- | ------------- | -------------
-CLI | 0% | 0%
-Client | 40% | 12%
-Controller | 100% | 92%
-Exceptions | 50% | 50%
-GUI | 0% | 0%
-Messages | 76% | 51%
-Model | 100% | 96%
-Observer | 100% | 37%
-Server | 0% | 0%
-View | 0% | 0%
+---
 
-## Documentation
+## 📚 Documentation
 
-To open the JavaDoc webpage open /deliverables/JavaDoc/index.html (in the repo folder) with a browser. 
+JavaDoc is included in the repository:
+Open [`deliverables/JavaDoc/index.html`](deliverables/JavaDoc/index.html) with any browser.
 
+---
+
+## 🏗️ Project Structure
+
+```
+Santorini/
+├── deliverables/        # Packaged JARs + JavaDoc
+├── src/main/java/       # Source code (MVC structure)
+│   ├── client/          # Client logic (CLI + GUI)
+│   ├── controller/      # Game controller
+│   ├── model/           # Game logic, rules, board state
+│   ├── server/          # Server logic
+│   └── view/            # Views and UI handling
+├── src/test/java/       # JUnit test cases
+└── src/main/resources/  # Assets (logo, configs)
+```
